@@ -1,6 +1,6 @@
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import java.io.IOException;
 
@@ -12,7 +12,11 @@ public class ElTiempo {
         String  miTexto = miElemento.text();
         System.out.println(miTexto); */
 
-        Document doc = Jsoup.connect("https://weather.com/es-ES/tiempo/hoy/l/SPXX0084:1:SP").userAgent("Chrome").get();
+        Document doc = Jsoup.connect("https://weather.com/es-ES/tiempo/hoy/l/SPXX0084:1:SP").userAgent("Mozilla").get();
+
+        Elements miElemento = doc.getElementsByClass("today_nowcard-temp");
+        String miTexto = miElemento.text();
+        System.out.println(miTexto);
 
     }
 }
